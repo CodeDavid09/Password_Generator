@@ -8,7 +8,6 @@ var confirmSpecial;
 var userChoices;
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var uppercase = lowercase.join(",").toUpperCase().split();
-console.log(uppercase);
 var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 var special = ["!", "@", "#", "$", "%"]
 
@@ -20,48 +19,44 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
+// checking if true or false, adding to the possiblecharacters based on user response
 function generatePassword() {
   var options = getPwOptions()
   var result = []
   var possiblecharacters = []
-  var setcharacters = []
-
-  if (options.confirmSpecial){
+  var setCharacters = []
+// did the person hit okay or cancel 
+  if (options.confirmSpecial) {
     possiblecharacters = possiblecharacters.concat(special)
-    setcharacters.push (getRandom(special))
+    setCharacters.push(getRandom(special))
   }
 
-  if (options.confirmNumber){
+  if (options.confirmNumber) {
     possiblecharacters = possiblecharacters.concat(number)
-    setcharacters.push (getRandom(number))
+    setCharacters.push(getRandom(number))
   }
 
-  if (options.confirmLower){
+  if (options.confirmLower) {
     possiblecharacters = possiblecharacters.concat(lowercase)
-    setcharacters.push (getRandom(lowercase))
+    setCharacters.push(getRandom(lowercase))
   }
 
-  if (options.confirmUpper){
+  if (options.confirmUpper) {
     possiblecharacters = possiblecharacters.concat(uppercase)
-    setcharacters.push (getRandom(uppercase))
+    setCharacters.push(getRandom(uppercase))
   }
-  // var length = 8,
-  //     retVal = "";
-  //     for (var i = 0, n = charset.length; i < length; ++i) {
-  //         retVal += charset.charAt(Math.floor(Math.random() * n));
-  //     }
-  //     for (var i = 0, n = charset.length; i < length; ++i) {
-  //       retVal += punctuation.charAt(Math.floor(Math.random() * n));
-  //   }
-  //     return retVal;
+
+  for (var i = 0; i< setCharacters.length; i++) {
+    result[i] = setCharacters[i] 
+  }
+  return result.join("")  
 }
 
-function getRandom (arr) {
-var randomIndex = Math.floor(Math.random() * arr.length)
-var randomElements = arr[randomIndex]
+function getRandom(arr) {
+  var randomIndex = Math.floor(Math.random() * arr.length)
+  var randomElements = arr[randomIndex]
 
-return randomElements
+  return randomElements
 }
 
 
@@ -97,5 +92,7 @@ function getPwOptions() {
   }
   return userChoices
 }
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
