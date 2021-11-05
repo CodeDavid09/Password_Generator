@@ -1,5 +1,7 @@
 # 03 JavaScript: Password Generator
 
+This assignment has students practice the javascript skills learned in Wk 3 and apply them by creating a password generator. Below are the assignment details.
+
 ## Your Task
 
 This week’s homework requires you to modify starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished, responsive user interface that adapts to multiple screen sizes.
@@ -33,3 +35,4 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
+final product link: https://codedavid09.github.io/Password_Generator/
